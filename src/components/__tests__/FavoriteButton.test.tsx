@@ -1,6 +1,8 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import FavoriteButton from '../FavoriteButton'
+import { vi } from 'vitest'
+
 
 describe('FavoriteButton', () => {
     test('renders star and toggles', async () => {
