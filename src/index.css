@@ -1,0 +1,224 @@
+/* =========================================
+   Root variables & base styling
+   ========================================= */
+:root {
+  --max-width: 1100px;
+  --gap: 1rem;
+  --accent: #ef5350;
+  --muted: #6b7280;
+  --card-bg: rgba(255, 255, 255, 0.03);
+
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #e6eef8;
+  background: linear-gradient(180deg, #0f172a 0%, #071428 100%);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Base Reset */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+/* Layout container */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* =========================================
+   Navbar
+   ========================================= */
+.navbar {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.navbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand {
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+/* =========================================
+   Text elements & helpers
+   ========================================= */
+.page-header {
+  margin-bottom: 1rem;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.error {
+  color: #ff6b6b;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  text-transform: capitalize;
+}
+
+/* =========================================
+   Grid system
+   ========================================= */
+.grid {
+  display: grid;
+  gap: var(--gap);
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 360px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 361px) and (max-width: 700px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 701px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* =========================================
+   Card components
+   ========================================= */
+.card,
+.detail-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  padding: 0.9rem;
+}
+
+.card-title {
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* =========================================
+   Details page
+   ========================================= */
+.detail-card {
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.detail-body {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.meta {
+  min-width: 160px;
+}
+
+/* Back button */
+.back-btn {
+  background: transparent;
+  color: var(--muted);
+  border: none;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+
+/* =========================================
+   Favorites
+   ========================================= */
+.favorites {
+  margin-top: 1.5rem;
+}
+
+.fav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.fav-list a {
+  background: var(--card-bg);
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+  text-transform: capitalize;
+}
+
+/* Favorite button */
+.fav-btn {
+  border: none;
+  background: transparent;
+  color: #ffd166;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.fav-btn.big {
+  font-size: 1rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  background: var(--card-bg);
+}
+
+/* =========================================
+   Light Mode (optional)
+   ========================================= */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  .navbar {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  .fav-btn {
+    color: #c29300;
+  }
+}
